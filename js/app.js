@@ -14,7 +14,7 @@ var easingLeft = anime({
   },
   easing: 'easeInOutQuart',
   delay: function(el, i, l) {
-    return i * 100;
+    return i * 80;
   }
 });
 
@@ -25,7 +25,7 @@ var easingRight = anime({
   },
   easing: 'easeInOutQuart',
   delay: function(el, i, l) {
-    return i * 100;
+    return i * 80;
   }
 });
 
@@ -33,5 +33,12 @@ var easingQuotes = anime({
   targets: '#quotes',
   scale: [0,1],
   easing: 'easeInOutQuart',
-  delay: 1000
+  delay: 1200
+});
+
+var easingText = anime({
+  targets: '#logoText',
+  translateY: [500, 0],
+  easing: 'easeInOutElastic',
+  delay: 1300
 });

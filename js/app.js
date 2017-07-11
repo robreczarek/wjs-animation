@@ -3,20 +3,35 @@ towerElements = [...towerElements].sort((a, b) => {
   return parseFloat(a.getAttribute('x')) - parseFloat(b.getAttribute('x'));
 });
 
-var easing = anime({
-  targets: towerElements,
+towerLeft = towerElements.slice(0, Math.floor(towerElements.length/2));
+towerRight = towerElements.slice(Math.floor(towerElements.length/2), towerElements.length);
+
+
+var easingLeft = anime({
+  targets: towerLeft,
   translateX: function(el, i, l) {
-    if (i > (l*0.5)) {
-      return [4000-((i+1)*100), 0];
-    } else {
-      return [-4000+((i+1)*100), 0];
-    }
+    return [7000-((i+1)*100), 0];
   },
   easing: 'easeInOutQuart',
   delay: function(el, i, l) {
-    if (i > .5*l) {
-      return (i-(.5*l)) * 100;
-    }
-    return (l-i) * 100;
+    return i * 100;
   }
+});
+
+var easingRight = anime({
+  targets: towerRight,
+  translateX: function(el, i, l) {
+    return [-7000+((i+1)*100), 0];
+  },
+  easing: 'easeInOutQuart',
+  delay: function(el, i, l) {
+    return i * 100;
+  }
+});
+
+var easingQuotes = anime({
+  targets: '#quotes',
+  scale: [0,1],
+  easing: 'easeInOutQuart',
+  delay: 1000
 });

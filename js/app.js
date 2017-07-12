@@ -9,9 +9,7 @@ towerRight = towerElements.slice(Math.floor(towerElements.length/2), towerElemen
 
 var easingLeft = anime({
   targets: towerLeft,
-  translateX: function(el, i, l) {
-    return [7000-((i+1)*100), 0];
-  },
+  translateX: [7000, 0],
   easing: 'easeInOutQuart',
   delay: function(el, i, l) {
     return i * 80;
@@ -20,9 +18,7 @@ var easingLeft = anime({
 
 var easingRight = anime({
   targets: towerRight,
-  translateX: function(el, i, l) {
-    return [-7000+((i+1)*100), 0];
-  },
+  translateX: [-7000, 0],
   easing: 'easeInOutQuart',
   delay: function(el, i, l) {
     return i * 80;
